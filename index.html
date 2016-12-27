@@ -20,13 +20,23 @@
 		function reqListener () {
 			var adjs = JSON.parse(this.responseText).adjs;
 			announce(
-				adjs[~~(Math.random() * adjs.length)] +
-				' Brexit ‘could save families £' +
-				~~(Math.random() * 500 + 10) +
-				' billion per ' +
-				[ 'hour', 'day', 'week', 'month', 'year' ]
-				[ ~~(Math.random() * 5) ] + '’'
+				uCase(oneOf(adjs)) +
+				' Brexit ‘could save ' +
+				oneOf(['families', 'Britons', 'hardworking people']) +
+				' £' + ~~(Math.random() * 500 + 10) + ' ' +
+				oneOf(['billion', 'million']) +
+				' per ' +
+				oneOf([ 'hour', 'day', 'week', 'month', 'year' ]) +
+				'’'
 			);
+		}
+
+		function uCase(word) {
+			return word[0].toUpperCase() + word.substr(1);
+		}
+
+		function oneOf(words) {
+			return words[~~(Math.random() * words.length)]
 		}
 
 		function announce(text) {
@@ -42,7 +52,7 @@
 			text-align: center;
 			padding: 15vmin 10vw;
 			text-transform: uppercase;
-			font-size: 15vmin;
+			font-size: 10vmin;
 			display: block;
 			transform: scale(0.001) rotate(0deg);
 			transition: transform 500ms;

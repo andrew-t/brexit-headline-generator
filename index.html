@@ -23,7 +23,7 @@
 					[ ~~(Math.random() * 5) ]
 				));
 			el.style.transform = 'rotate(' +
-				(Math.random() * 20 - 10) + 'deg)';
+				(Math.random() * 20 + 710) + 'deg)';
 		}
 	</script>
 	<style>
@@ -34,6 +34,8 @@
 			text-transform: uppercase;
 			font-size: 15vmin;
 			display: block;
+			transform: scale(0);
+			transition: transform 500ms;
 		}
 	</style>
 </body>

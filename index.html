@@ -8,12 +8,8 @@
 	<script type="text/javascript">
 		var oReq = new XMLHttpRequest();
 		oReq.addEventListener("load", reqListener);
-		oReq.addEventListener("abort", function (e) {
-			console.log('abort', e);
-		});
-		oReq.addEventListener("error", function (e) {
-			console.log('error', e);
-		});
+		oReq.addEventListener("abort", reqError);
+		oReq.addEventListener("error", reqError);
 		oReq.open("GET", "./corpora/data/words/adjs.json");
 		oReq.send();
 

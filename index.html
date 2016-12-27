@@ -32,7 +32,7 @@
 		function announce(text) {
 			var el = document.getElementById('headline');
 			el.appendChild(document.createTextNode(text));
-			el.style.transform = 'rotate(' +
+			el.style.transform = 'scale(1) rotate(' +
 				(Math.random() * 20 + 710) + 'deg)';
 		}
 	</script>
@@ -44,7 +44,7 @@
 			text-transform: uppercase;
 			font-size: 15vmin;
 			display: block;
-			transform: scale(0.001);
+			transform: scale(0.001) rotate(0deg);
 			transition: transform 500ms;
 		}
 	</style>

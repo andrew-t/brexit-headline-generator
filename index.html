@@ -21,11 +21,11 @@
 			var adjs = JSON.parse(this.responseText).adjs;
 			announce(
 				adjs[~~(Math.random() * adjs.length)] +
-				' Brexit could save families £' +
+				' Brexit ‘could save families £' +
 				~~(Math.random() * 500 + 10) +
 				' billion per ' +
 				[ 'hour', 'day', 'week', 'month', 'year' ]
-				[ ~~(Math.random() * 5) ]
+				[ ~~(Math.random() * 5) ] + '’'
 			);
 		}
 

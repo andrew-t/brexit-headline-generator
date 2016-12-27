@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<span id="headline"></span>
+	<script type="text/javascript">
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", reqListener);
+		oReq.open("GET", "/corpora/data/words/adjs.json");
+		oReq.send();
+
+		function reqListener () {
+			var adjs = JSON.parse(this.responseText).adjs;
+			var el = document.getElementById('headline');
+			el.appendChild(document.createTextNode(
+					adjs[~~(Math.random() * adjs.length)] +
+					' Brexit could save families £' +
+					~~(Math.random() * 500 + 10) +
+					' billion per ' +
+					[ 'hour', 'day', 'week', 'month', 'year' ]
+					[ ~~(Math.random() * 5) ]
+				));
+			el.style.transform = 'rotate(' +
+				(Math.random() * 20 - 10) + 'deg)';
+		}
+	</script>
+	<style>
+		#headline {
+			font-family: 'Impact', sans-serif;
+			text-align: center;
+			padding: 15vh 10vw;
+			text-transform: uppercase;
+			font-size: 15vmin;
+			display: block;
+		}
+	</style>
+</body>
+</html>

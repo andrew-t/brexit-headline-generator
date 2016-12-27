@@ -17,17 +17,25 @@
 		oReq.open("GET", "./corpora/data/words/adjs.json");
 		oReq.send();
 
+		function reqError () {
+			announce('Could not load resources — disable adblock?');
+		}
+
 		function reqListener () {
 			var adjs = JSON.parse(this.responseText).adjs;
+			announce(
+				adjs[~~(Math.random() * adjs.length)] +
+				' Brexit could save families £' +
+				~~(Math.random() * 500 + 10) +
+				' billion per ' +
+				[ 'hour', 'day', 'week', 'month', 'year' ]
+				[ ~~(Math.random() * 5) ]
+			);
+		}
+
+		function announce(text) {
 			var el = document.getElementById('headline');
-			el.appendChild(document.createTextNode(
-					adjs[~~(Math.random() * adjs.length)] +
-					' Brexit could save families £' +
-					~~(Math.random() * 500 + 10) +
-					' billion per ' +
-					[ 'hour', 'day', 'week', 'month', 'year' ]
-					[ ~~(Math.random() * 5) ]
-				));
+			el.appendChild(document.createTextNode(text));
 			el.style.transform = 'rotate(' +
 				(Math.random() * 20 + 710) + 'deg)';
 		}
